@@ -15,7 +15,7 @@ import com.example.hogwarts.network.dto.SpellDTO
 import com.example.hogwarts.utils.RecyclerViewAdapter
 import com.example.hogwarts.utils.ViewHolderType
 import com.example.hogwarts.utils.assignViewHolderType
-import kotlinx.android.synthetic.main.fragment_spells.*
+import kotlinx.android.synthetic.main.fragment_hogwarts.*
 
 class SpellsFragment : Fragment() {
 
@@ -33,7 +33,7 @@ class SpellsFragment : Fragment() {
     ): View? {
         (activity as? MainActivity)?.setFragmentActionBar("Spells")
         return inflater.inflate(
-            R.layout.fragment_spells,
+            R.layout.fragment_hogwarts,
             container,
             false
         )
@@ -49,7 +49,6 @@ class SpellsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setUpSpellRecyclerView()
-
     }
 
     private fun spellObservers() {

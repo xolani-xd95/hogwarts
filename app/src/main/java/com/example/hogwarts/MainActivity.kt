@@ -5,7 +5,6 @@ import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.graphics.drawable.DrawerArrowDrawable
 import androidx.appcompat.widget.Toolbar
-import androidx.core.content.res.ResourcesCompat
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.navigation.NavController
@@ -39,6 +38,9 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             R.id.nav_spells -> {
                 navController.navigate(R.id.nav_spells)
             }
+            R.id.nav_houses -> {
+                navController.navigate(R.id.nav_houses)
+            }
         }
         drawerLayout.closeDrawer(GravityCompat.START)
         return true
@@ -55,10 +57,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         }
     }
 
-    fun setFragmentActionBar(title: String){
+    fun setFragmentActionBar(title: String) {
         supportActionBar?.title = title
-        supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        supportActionBar?.setHomeAsUpIndicator(ResourcesCompat.getDrawable(resources, R.drawable.ic_baseline_arrow_back_24, null))
-        drawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED)
     }
 }

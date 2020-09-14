@@ -9,6 +9,12 @@
         android:id="@+id/nav_spells"
         android:name="com.example.hogwarts.ui.spells.SpellsFragment"
         android:label="@string/menu_spells"
-        tools:layout="@layout/fragment_spells" />
+        tools:layout="@layout/fragment_hogwarts" />
+
+    <fragment
+        android:id="@+id/nav_houses"
+        android:name="com.example.hogwarts.ui.houses.HousesFragment"
+        android:label="@string/menu_houses"
+        tools:layout="@layout/fragment_hogwarts" />
 
 </navigation>
