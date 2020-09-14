@@ -60,4 +60,8 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     fun setFragmentActionBar(title: String) {
         supportActionBar?.title = title
     }
+
+    companion object {
+        val api_key = "$2a$10$1JEnmtEF417yBaFZcr51qukRjaKv8d5toEG5DKP/IUZWIVwfsaF7y"
+    }
 }

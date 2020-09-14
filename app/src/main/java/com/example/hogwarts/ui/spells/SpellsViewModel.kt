@@ -5,6 +5,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.hogwarts.MainActivity
 import com.example.hogwarts.network.api.ApiClient
 import com.example.hogwarts.network.api.ApiSpell
 import com.example.hogwarts.network.dto.SpellDTO
@@ -24,7 +25,7 @@ class SpellsViewModel : ViewModel() {
     fun getAllSpells() = viewModelScope.launch(Dispatchers.IO) {
         try {
             val getAllSpellsResponse =
-                apiSpellClient.getAllSpells("$2a$10$1JEnmtEF417yBaFZcr51qukRjaKv8d5toEG5DKP/IUZWIVwfsaF7y")
+                apiSpellClient.getAllSpells(MainActivity.api_key)
             if (getAllSpellsResponse.isSuccessful) {
                 // switch to main thread for assiging the response to live data else will crash / throw excpetion if done in background thread
                 withContext(Dispatchers.Main) {

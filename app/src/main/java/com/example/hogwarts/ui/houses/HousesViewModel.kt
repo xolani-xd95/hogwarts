@@ -5,6 +5,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.hogwarts.MainActivity
 import com.example.hogwarts.network.api.ApiClient
 import com.example.hogwarts.network.api.ApiHouse
 import kotlinx.coroutines.Dispatchers
@@ -23,7 +24,7 @@ class HousesViewModel : ViewModel() {
     fun getAllHouses() = viewModelScope.launch(Dispatchers.IO) {
         try {
             val reponse =
-                apiHouseClient.getHouses("$2a$10$1JEnmtEF417yBaFZcr51qukRjaKv8d5toEG5DKP/IUZWIVwfsaF7y")
+                apiHouseClient.getHouses(MainActivity.api_key)
             if (reponse.isSuccessful) {
                 withContext(Dispatchers.Main) {
                     allHousesResponse.value = reponse.body()
