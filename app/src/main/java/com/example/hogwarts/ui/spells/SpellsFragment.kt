@@ -9,6 +9,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.hogwarts.MainActivity
 import com.example.hogwarts.R
 import com.example.hogwarts.network.dto.SpellDTO
 import com.example.hogwarts.utils.RecyclerViewAdapter
@@ -30,6 +31,7 @@ class SpellsFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        (activity as? MainActivity)?.setFragmentActionBar("Spells")
         return inflater.inflate(
             R.layout.fragment_spells,
             container,

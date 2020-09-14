@@ -1,11 +1,12 @@
 package com.example.hogwarts
 
 import android.os.Bundle
-import android.view.Gravity
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.graphics.drawable.DrawerArrowDrawable
 import androidx.appcompat.widget.Toolbar
+import androidx.core.content.res.ResourcesCompat
+import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
@@ -30,12 +31,17 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     }
 
     override fun onSupportNavigateUp(): Boolean {
-        val navController = findNavController(R.id.nav_host_fragment)
         return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
     }
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
-        TODO("Not yet implemented")
+        when (item.itemId) {
+            R.id.nav_spells -> {
+                navController.navigate(R.id.nav_spells)
+            }
+        }
+        drawerLayout.closeDrawer(GravityCompat.START)
+        return true
     }
 
     private fun setUpNavigationDrawer() {
@@ -45,7 +51,14 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         navView.setNavigationItemSelectedListener(this)
         toolbar.navigationIcon = DrawerArrowDrawable(this)
         toolbar.setNavigationOnClickListener {
-            drawerLayout.openDrawer(Gravity.START)
+            drawerLayout.openDrawer(GravityCompat.START)
         }
+    }
+
+    fun setFragmentActionBar(title: String){
+        supportActionBar?.title = title
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        supportActionBar?.setHomeAsUpIndicator(ResourcesCompat.getDrawable(resources, R.drawable.ic_baseline_arrow_back_24, null))
+        drawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED)
     }
 }
