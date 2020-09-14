@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Hogwarts</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Hogwarts Assessment</string>
+    <string name="nav_header_subtitle">By X. Dlamini</string>
+
+    <string name="menu_spells">Spells</string>
+    <string name="menu_houses">Houses</string>
+    <string name="menu_students">Students</string>
+</resources>
