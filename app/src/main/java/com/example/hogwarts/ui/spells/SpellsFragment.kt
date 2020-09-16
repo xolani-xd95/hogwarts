@@ -13,6 +13,7 @@ import com.example.hogwarts.MainActivity
 import com.example.hogwarts.R
 import com.example.hogwarts.network.dto.SpellDTO
 import com.example.hogwarts.utils.RecyclerViewAdapter
+import com.example.hogwarts.utils.RecyclerViewAdapterCustom
 import com.example.hogwarts.utils.ViewHolderType
 import com.example.hogwarts.utils.assignViewHolderType
 import kotlinx.android.synthetic.main.fragment_hogwarts.*
@@ -23,7 +24,7 @@ class SpellsFragment : Fragment() {
     private lateinit var spellViewModel: SpellsViewModel
 
     // RecyclerView
-    private lateinit var spellRecyclerViewAdapter: RecyclerViewAdapter<SpellDTO>
+    private lateinit var spellRecyclerViewAdapter: RecyclerViewAdapterCustom
     private lateinit var spellLinearLayoutManager: LinearLayoutManager
 
     override fun onCreateView(
@@ -55,7 +56,7 @@ class SpellsFragment : Fragment() {
         spellViewModel.getSpellResponse()
             .observe(viewLifecycleOwner, Observer { spells ->
                 if (spells.isNotEmpty()) {
-                    spellRecyclerViewAdapter.updateRecyclerViewData(
+                    spellRecyclerViewAdapter.updateDataSet(
                         assignViewHolderType(
                             spells,
                             ViewHolderType.ALL_SPELLS
@@ -66,7 +67,7 @@ class SpellsFragment : Fragment() {
     }
 
     private fun setUpSpellRecyclerView() {
-        spellRecyclerViewAdapter = RecyclerViewAdapter(arrayListOf())
+        spellRecyclerViewAdapter = RecyclerViewAdapterCustom(arrayListOf())
         spellLinearLayoutManager = LinearLayoutManager(context, RecyclerView.VERTICAL, false)
         hogwartsRV.adapter = spellRecyclerViewAdapter
         hogwartsRV.layoutManager = spellLinearLayoutManager
